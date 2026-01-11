@@ -17,10 +17,11 @@
     font-size: 1.5rem;
     font-weight: 700;
     color: white;
-    /* Assuming darker hero background */
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    z-index: 60;
+    /* Keep logo above mobile menu overlay */
 }
 
 .navLinks {
@@ -68,3 +69,30 @@
 .joinBtn:hover {
     background: rgba(255, 255, 255, 0.3);
 }
+
+.mobileMenuBtn {
+    display: none;
+    background: transparent;
+    border: none;
+    color: white;
+    cursor: pointer;
+    z-index: 60;
+}
+
+@media (max-width: 768px) {
+
+    .navLinks,
+    .authButtons {
+        display: none;
+        /* Simply hide for now, or implement a full mobile drawer if requested */
+    }
+
+    .mobileMenuBtn {
+        display: block;
+    }
+}
+
+/* Note: A full mobile menu implementation would require state in the component. 
+   For now, we just hide links to prevent breaking the layout, as requested "responsiveness".
+   Ideally we would toggle a class to show a fullscreen menu.
+*/

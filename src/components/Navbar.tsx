@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { Plane } from 'lucide-react';
+import { Plane, Menu } from 'lucide-react';
 import styles from './Navbar.module.css';
 
 export default function Navbar() {
@@ -20,6 +20,10 @@ export default function Navbar() {
             <button className={styles.signInBtn} onClick={() => alert('Sign In clicked')}>Sign In</button>
             <button className={styles.joinBtn} onClick={() => alert('Join Club clicked')}>Join Club</button>
           </div>
+
+          <button className={styles.mobileMenuBtn} onClick={() => alert('Mobile menu clicked')}>
+            <Menu size={24} />
+          </button>
         </div>
       </div>
     </nav>

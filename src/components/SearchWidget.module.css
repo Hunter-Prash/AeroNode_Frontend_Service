@@ -1,6 +1,5 @@
 .widgetContainer {
     background: rgba(23, 37, 84, 0.6);
-    /* deeply dark blue with transparency */
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
     border-radius: 20px;
@@ -38,6 +37,12 @@
     flex-direction: column;
 }
 
+/* Explicit class for right aligned input */
+.inputWrapperRight {
+    align-items: flex-end;
+    text-align: right;
+}
+
 .label {
     font-size: 0.7rem;
     text-transform: uppercase;
@@ -55,6 +60,10 @@
     width: 100%;
     outline: none;
     cursor: text;
+}
+
+.inputDisplayRight {
+    text-align: right;
 }
 
 .subLabel {
@@ -84,36 +93,12 @@
 
 .filtersRow {
     display: grid;
-    grid-template-columns: repeat(4, 1fr) auto;
+    grid-template-columns: repeat(4, 1fr);
     gap: 1rem;
     align-items: center;
 }
 
-.filterItem {
-    display: flex;
-    flex-direction: column;
-    gap: 0.25rem;
-    cursor: pointer;
-    padding: 0.5rem;
-    border-radius: 8px;
-    transition: background 0.2s;
-}
-
-.filterItem:hover {
-    background: rgba(255, 255, 255, 0.05);
-}
-
-.filterValue {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-weight: 600;
-    font-size: 0.95rem;
-}
-
 .searchButton {
-    background: #3B82F6;
-    /* Fallback */
     background: linear-gradient(135deg, #0EA5E9 0%, #0284C7 100%);
     color: white;
     border: none;
@@ -128,42 +113,60 @@
     transition: all 0.2s;
 }
 
-.searchButton:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 15px 20px -3px rgba(14, 165, 233, 0.4);
+/* Media Queries for Responsiveness */
+
+@media (max-width: 768px) {
+    .inputsRow {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .locationGroup {
+        flex-direction: column;
+        align-items: stretch;
+        background: transparent;
+        border: none;
+        padding: 0;
+        gap: 0.5rem;
+    }
+
+    .inputWrapper {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 12px;
+    }
+
+    /* Reset alignment for mobile inputs to always be left or consistent */
+    .inputWrapperRight {
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    .inputDisplayRight {
+        text-align: left;
+    }
+
+    .swapButton {
+        align-self: center;
+        transform: rotate(90deg);
+        margin: -1rem 0;
+        z-index: 10;
+        background: #1e293b;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .filtersRow {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .searchButton {
+        width: 100%;
+        margin-top: 1rem;
+    }
 }
 
-/* Tabs */
-.tabs {
-    display: flex;
-    gap: 2rem;
-    margin-bottom: 1.5rem;
-    padding-bottom: 1rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.tab {
-    background: none;
-    border: none;
-    color: rgba(255, 255, 255, 0.6);
-    font-weight: 600;
-    cursor: pointer;
-    padding: 0.25rem 0;
-    position: relative;
-    transition: color 0.2s;
-}
-
-.tab.active {
-    color: white;
-}
-
-.tab.active::after {
-    content: '';
-    position: absolute;
-    bottom: -17px;
-    /* adjusting for parent padding */
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background: #0EA5E9;
+@media (max-width: 480px) {
+    .filtersRow {
+        grid-template-columns: 1fr;
+    }
 }

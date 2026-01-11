@@ -53,13 +53,12 @@ export default function SearchWidget() {
                         <Plane size={16} className="rotate-90" />
                     </button>
 
-                    <div className={styles.inputWrapper} style={{ alignItems: 'flex-end', textAlign: 'right' }}>
+                    <div className={`${styles.inputWrapper} ${styles.inputWrapperRight}`}>
                         <span className={styles.label}>To</span>
                         <input
-                            className={styles.inputDisplay}
+                            className={`${styles.inputDisplay} ${styles.inputDisplayRight}`}
                             value={destination.city}
                             onChange={(e) => setDestination({ ...destination, city: e.target.value })}
-                            style={{ textAlign: 'right' }}
                         />
                         <span className={styles.subLabel}>{destination.code}</span>
                     </div>
