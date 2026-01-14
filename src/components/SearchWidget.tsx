@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import { Plane, User, Search, Briefcase } from 'lucide-react';
 import styles from './SearchWidget.module.css';
 import DatePicker from './DatePicker';
@@ -22,15 +23,11 @@ export default function SearchWidget() {
         setDestination(temp);
     };
 
+    const router = useRouter();
+
     const handleSearch = () => {
-        alert(`Searching flights:
-      From: ${origin.city} (${origin.code})
-      To: ${destination.city} (${destination.code})
-      Depart: ${departureDate}
-      Return: ${returnDate}
-      Travelers: ${passengers}
-      Class: ${tripClass}
-    `);
+        // In a real app, we would pass query params here
+        router.push('/search');
     };
 
     return (

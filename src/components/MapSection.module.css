@@ -1,0 +1,140 @@
+.section {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: #cbd5e1;
+    /* Fallback */
+    overflow: hidden;
+    border-radius: 0 0 0 0;
+    /* Full bleed to right edge */
+}
+
+.mapImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.8;
+    filter: grayscale(0.2) contrast(1.1);
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, transparent 0%, rgba(0, 0, 0, 0.1) 100%);
+    pointer-events: none;
+}
+
+/* Simulated Flight Path - purely cosmetic SVG overlay */
+.flightPathSvg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.pathLine {
+    fill: none;
+    stroke: #3b82f6;
+    stroke-width: 2;
+    stroke-dasharray: 6 6;
+    opacity: 0.8;
+}
+
+.controls {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    z-index: 20;
+}
+
+.controlBtn {
+    width: 40px;
+    height: 40px;
+    background: white;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    color: #64748b;
+    transition: all 0.2s;
+}
+
+.controlBtn:hover {
+    background: #f8fafc;
+    color: #0f172a;
+}
+
+.weatherWidget {
+    position: absolute;
+    bottom: 2rem;
+    right: 2rem;
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 1.5rem;
+    border-radius: 24px;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    min-width: 240px;
+    z-index: 20;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.weatherHeader {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #64748b;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+.tempRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.temp {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #0f172a;
+}
+
+.location {
+    font-size: 0.9rem;
+    color: white;
+    /* Based on image design it looks like white or very light grey text for location if bg is dark, but here bg is glass-white so dark text is better. Wait, image shows white card. I'll stick to dark text for contrast on light glass. */
+    color: #334155;
+}
+
+.weatherIcon {
+    color: #F59E0B;
+    /* Sun color */
+}
+
+.conditionText {
+    font-size: 0.8rem;
+    color: #64748b;
+    text-align: right;
+}
+
+.detailsRow {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+    font-size: 0.75rem;
+    color: #94a3b8;
+}

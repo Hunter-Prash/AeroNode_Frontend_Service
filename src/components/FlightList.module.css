@@ -1,0 +1,87 @@
+.sidebar {
+    padding: 2rem;
+    height: calc(100vh - 80px);
+    /* Minus header height */
+    overflow-y: auto;
+    background: #f8fafc;
+    border-right: 1px solid #e2e8f0;
+}
+
+.titleArea {
+    margin-bottom: 1.5rem;
+}
+
+.titleRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 1rem;
+}
+
+.title {
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: #0f172a;
+}
+
+.resultsCount {
+    font-size: 0.9rem;
+    color: #64748b;
+    font-weight: 500;
+}
+
+.filterRow {
+    display: flex;
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+    overflow-x: auto;
+    /* Allow scroll on small screens */
+    padding-bottom: 0.5rem;
+}
+
+.filterBtn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6rem 1rem;
+    border-radius: 99px;
+    border: 1px solid #cbd5e1;
+    background: white;
+    color: #334155;
+    font-weight: 600;
+    font-size: 0.85rem;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.2s;
+}
+
+.filterBtn:hover {
+    background: #f1f5f9;
+    border-color: #94a3b8;
+}
+
+.filterBtn.active {
+    background: #0f172a;
+    color: white;
+    border-color: #0f172a;
+}
+
+.flightGrid {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* Scrollbar styling */
+.sidebar::-webkit-scrollbar {
+    width: 6px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 3px;
+}

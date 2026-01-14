@@ -1,0 +1,53 @@
+.layoutContainer {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden;
+    background: white;
+}
+
+.mainContent {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+}
+
+.leftPanel {
+    width: 550px;
+    /* Fixed width for list */
+    flex-shrink: 0;
+    z-index: 10;
+    background: #f8fafc;
+}
+
+.rightPanel {
+    flex: 1;
+    position: relative;
+}
+
+/* Responsiveness */
+@media (max-width: 1024px) {
+    .leftPanel {
+        width: 450px;
+    }
+}
+
+@media (max-width: 768px) {
+    .mainContent {
+        flex-direction: column;
+        overflow-y: auto;
+    }
+
+    .leftPanel {
+        width: 100%;
+        height: auto;
+        overflow-y: visible;
+    }
+
+    .rightPanel {
+        height: 400px;
+        /* Map becomes smaller section */
+        order: -1;
+        /* Option: show map on top? Or bottom. Image shows side by side, implying desktop. Let's keep standard stacking. Map usually top on mobile. */
+    }
+}
