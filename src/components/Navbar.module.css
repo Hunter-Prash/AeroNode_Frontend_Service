@@ -1,0 +1,98 @@
+.navbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 50;
+    padding: 1.5rem 0;
+}
+
+.navContent {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    z-index: 60;
+    /* Keep logo above mobile menu overlay */
+}
+
+.navLinks {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+}
+
+.navLink {
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: color 0.2s;
+}
+
+.navLink:hover {
+    color: white;
+}
+
+.authButtons {
+    display: flex;
+    gap: 1rem;
+}
+
+.signInBtn {
+    color: white;
+    background: transparent;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.joinBtn {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    backdrop-filter: blur(4px);
+    padding: 0.5rem 1.25rem;
+    border-radius: 99px;
+    font-weight: 600;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.joinBtn:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.mobileMenuBtn {
+    display: none;
+    background: transparent;
+    border: none;
+    color: white;
+    cursor: pointer;
+    z-index: 60;
+}
+
+@media (max-width: 768px) {
+
+    .navLinks,
+    .authButtons {
+        display: none;
+        /* Simply hide for now, or implement a full mobile drawer if requested */
+    }
+
+    .mobileMenuBtn {
+        display: block;
+    }
+}
+
+/* Note: A full mobile menu implementation would require state in the component. 
+   For now, we just hide links to prevent breaking the layout, as requested "responsiveness".
+   Ideally we would toggle a class to show a fullscreen menu.
+*/
